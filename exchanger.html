@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#f5f7f5">
+        <title>Currency Converter</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+        <script src="features.js" defer></script>
+    </head>
+    <body class="is-loading">
+        <div class="intro-screen" role="status" aria-label="Loading exchange converter">
+            <div class="brand intro-brand" aria-hidden="true">
+                <span class="brand-icon" aria-hidden="true">↗</span>
+                <span>exchange</span>
+            </div>
+        </div>
+        <main class="converter">
+            <header class="page-header">
+                <a class="brand" href="#" aria-label="Exchange home">
+                    <span class="brand-icon" aria-hidden="true">↗</span>
+                    <span>exchange</span>
+                </a>
+                <button id="theme-button" class="theme-button" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+                    <span aria-hidden="true">☾</span>
+                </button>
+            </header>
+
+            <section class="converter-card" aria-labelledby="page-title">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">CURRENCY CONVERTER</p>
+                        <h1 id="page-title">Convert money<br>with confidence.</h1>
+                    </div>
+                    <span class="heading-icon" aria-hidden="true">⇄</span>
+                </div>
+
+                <div class="currency-field">
+                    <label class="field-label" for="from-amount">You send</label>
+                    <div class="currency-controls">
+                        <input id="from-amount" type="number" min="0" step="any" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                        <select id="from-currency" aria-label="Currency to convert from">
+                            <option value="USD" selected>USD</option>
+                            <option value="KES">KES</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="CAD">CAD</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="INR">INR</option>
+                            <option value="UGX">UGX</option>
+                            <option value="TZS">TZS</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="rate-row">
+                    <span class="rate-dot" aria-hidden="true"></span>
+                    <span id="rate-text" aria-live="polite">Loading exchange rate…</span>
+                    <button id="swap-button" class="swap-button" type="button" aria-label="Swap currencies" title="Swap currencies">↕</button>
+                </div>
+
+                <div class="currency-field result-field">
+                    <label class="field-label" for="to-amount">You receive</label>
+                    <div class="currency-controls">
+                        <input id="to-amount" type="number" min="0" step="any" inputmode="decimal" placeholder="0.00" autocomplete="off">
+                        <select id="to-currency" aria-label="Currency to convert to">
+                            <option value="USD">USD</option>
+                            <option value="KES" selected>KES</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="JPY">JPY</option>
+                            <option value="CAD">CAD</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CHF">CHF</option>
+                            <option value="CNY">CNY</option>
+                            <option value="INR">INR</option>
+                            <option value="UGX">UGX</option>
+                            <option value="TZS">TZS</option>
+                            <option value="ZAR">ZAR</option>
+                        </select>
+                    </div>
+                    <button id="copy-button" class="copy-button" type="button" disabled>
+                        Copy amount
+                    </button>
+                </div>
+
+                <p id="status-text" class="status-text" role="status">Rates shown are indicative.</p>
+                <p id="feature-status" class="feature-status" role="status" aria-live="polite"></p>
+            </section>
+            <footer class="page-footer">Rates update automatically. Check with your provider before making a transfer.</footer>
+        </main>
+    </body>
+</html>

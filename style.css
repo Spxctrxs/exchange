@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+    color-scheme: light;
+    font-family: 'DM Sans', sans-serif;
+    color: #202820;
+    background: #f5f7f5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgb(216 233 215 / 56%), transparent 48rem),
+        #f5f7f5;
+}
+
+body.is-loading {
+    overflow: hidden;
+}
+
+.intro-screen {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgb(216 233 215 / 56%), transparent 48rem),
+        #f5f7f5;
+}
+
+.intro-brand {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.page-header .brand {
+    visibility: hidden;
+}
+
+.converter {
+    opacity: 0;
+}
+
+body.is-ready .intro-screen {
+    display: none;
+}
+
+body.is-ready .page-header .brand {
+    visibility: visible;
+}
+
+body.is-ready .converter {
+    opacity: 1;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.converter {
+    width: min(100% - 2.5rem, 45rem);
+    min-height: 100vh;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+}
+
+.theme-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid #e3e8e0;
+    border-radius: 50%;
+    background: #fff;
+    color: #5d7158;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.theme-button:focus-visible,
+.copy-button:focus-visible {
+    outline: 3px solid rgb(91 135 76 / 30%);
+    outline-offset: 2px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: inherit;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: grid;
+    place-items: center;
+    border-radius: 0.6rem;
+    background: #d7edce;
+    color: #326532;
+    font-size: 1.2rem;
+}
+
+.page-footer {
+    color: #788078;
+    font-size: 0.8rem;
+}
+
+.converter-card {
+    width: min(100%, 34rem);
+    margin: auto;
+    padding: clamp(1.5rem, 6vw, 3rem);
+    border: 1px solid #e8ece7;
+    border-radius: 1.5rem;
+    background: rgb(255 255 255 / 92%);
+    box-shadow: 0 1.5rem 5rem rgb(40 58 40 / 8%);
+}
+
+.card-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.7rem;
+    color: #66815e;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.8rem, 7vw, 2.45rem);
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 1.14;
+}
+
+.heading-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #eef5eb;
+    color: #4a7045;
+    font-size: 1.5rem;
+}
+
+.currency-field {
+    padding: 1rem 1.15rem 1.1rem;
+    border: 1px solid #e5e9e3;
+    border-radius: 0.9rem;
+    background: #fbfcfa;
+}
+
+.result-field {
+    border-color: #dfe9da;
+    background: #f3f8f0;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #777f75;
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.currency-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.currency-controls input {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #202820;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.65rem, 7vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+}
+
+.currency-controls input::placeholder {
+    color: #c1c8bd;
+}
+
+.currency-controls select {
+    min-width: 6rem;
+    padding: 0.65rem 2rem 0.65rem 0.8rem;
+    border: 1px solid #e3e8e0;
+    border-radius: 0.65rem;
+    background-color: #fff;
+    color: #283226;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.currency-controls select:focus-visible,
+.swap-button:focus-visible {
+    outline: 3px solid rgb(91 135 76 / 30%);
+    outline-offset: 2px;
+}
+
+.copy-button {
+    margin-top: 0.8rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid #dfe9da;
+    border-radius: 0.55rem;
+    background: #fff;
+    color: #4a7045;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copy-button:disabled {
+    color: #a7afa4;
+    cursor: not-allowed;
+}
+
+.feature-status {
+    min-height: 1rem;
+    margin: 0.5rem 0 0;
+    color: #66815e;
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.rate-row {
+    min-height: 4.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #697366;
+    font-size: 0.8rem;
+}
+
+.rate-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    flex: none;
+    border-radius: 50%;
+    background: #75a668;
+}
+
+.swap-button {
+    width: 2rem;
+    height: 2rem;
+    margin-left: auto;
+    border: 1px solid #e5e9e3;
+    border-radius: 50%;
+    background: #fff;
+    color: #5d7158;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.swap-button:hover {
+    transform: rotate(180deg);
+    background: #eef5eb;
+}
+
+.status-text {
+    margin: 1.1rem 0 0;
+    color: #899087;
+    font-size: 0.72rem;
+    text-align: center;
+}
+
+.page-footer {
+    padding-block: 1.5rem 2rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+body[data-theme="dark"] {
+    color: #e7ece4;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgb(56 78 54 / 45%), transparent 48rem),
+        #171c18;
+}
+
+body[data-theme="dark"] .intro-screen {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgb(56 78 54 / 45%), transparent 48rem),
+        #171c18;
+}
+
+body[data-theme="dark"] .converter-card {
+    border-color: #343d34;
+    background: rgb(35 42 35 / 95%);
+    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 22%);
+}
+
+body[data-theme="dark"] .eyebrow,
+body[data-theme="dark"] .feature-status {
+    color: #a4c296;
+}
+
+body[data-theme="dark"] .heading-icon {
+    background: #303d2e;
+    color: #b7d6a8;
+}
+
+body[data-theme="dark"] .currency-field {
+    border-color: #3a4339;
+    background: #202720;
+}
+
+body[data-theme="dark"] .result-field {
+    border-color: #40503b;
+    background: #263124;
+}
+
+body[data-theme="dark"] .field-label,
+body[data-theme="dark"] .rate-row,
+body[data-theme="dark"] .status-text,
+body[data-theme="dark"] .page-footer {
+    color: #a2aaa0;
+}
+
+body[data-theme="dark"] .currency-controls input {
+    color: #e7ece4;
+}
+
+body[data-theme="dark"] .currency-controls input::placeholder {
+    color: #697267;
+}
+
+body[data-theme="dark"] .currency-controls select,
+body[data-theme="dark"] .swap-button,
+body[data-theme="dark"] .theme-button,
+body[data-theme="dark"] .copy-button {
+    border-color: #414b40;
+    background: #2a3329;
+    color: #d3e4cb;
+}
+
+body[data-theme="dark"] .copy-button:disabled {
+    color: #7e887b;
+}
+
+body[data-theme="dark"] .brand-icon {
+    background: #303d2e;
+    color: #b7d6a8;
+}
+
+@media (max-width: 420px) {
+    .converter {
+        width: min(100% - 1.5rem, 45rem);
+    }
+
+    .page-header {
+        padding-block: 1.3rem;
+    }
+
+    .header-note {
+        max-width: 8rem;
+        text-align: right;
+    }
+
+    .currency-controls {
+        gap: 0.5rem;
+    }
+
+    .currency-controls select {
+        min-width: 5.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
